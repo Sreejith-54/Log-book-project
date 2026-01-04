@@ -1,5 +1,5 @@
 import React from "react";
-import '../style.css'
+import './subjectwisereport_style.css'
 import icon_img from'../assets/logbook.png';
 import title from '../assets/title.png'
 
