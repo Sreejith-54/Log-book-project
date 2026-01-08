@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Logo from '../assets/logo.png'
+import Logo from '../../logo.png'
 
 const timetableData = {
 "CSE(AI)-A": {
@@ -235,22 +235,6 @@ export default function FacultyDashboard() {
           }
         }
       `}</style>
-
-      {/* Header */}
-      <header className="header" style={{
-        background: '#AD3A3C',
-        color: 'white',
-        padding: '15px 40px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}>
-        <img src={Logo} alt="Institute Logo" className="header-logo" style={{ maxHeight: '50px' }} />
-        <nav className="header-nav" style={{ display: 'flex', gap: '50px' }}>
-          <a href="/" style={{ color: 'white', textDecoration: 'none', fontSize: '18px' }}>Dashboard</a>
-          <a href="/attendance" style={{ color: 'white', textDecoration: 'none', fontSize: '18px' }}>Attendance Report</a>
-        </nav>
-      </header>
 
       <div className="container" style={{ padding: '30px 40px', maxWidth: '1400px', margin: '0 auto' }}>
         <div className="select-container" style={{

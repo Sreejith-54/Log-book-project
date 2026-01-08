@@ -82,14 +82,20 @@ const attendanceEvent = [
 const StudentReportCalender = (props) => {
 const [attendanceEvents, setAttendanceEvents] = React.useState([]);
 const [subject, setSubject] = React.useState('');
+
+async function fetchAttendanceData() {
+    console.log("Subject in Calendar:",subject);
+}
+
 React.useEffect(() => {
     setAttendanceEvents(attendanceEvent);
     setSubject(props.subject);
+    fetchAttendanceData();
 }, [props.subject]);
 return (
 <div>
     <FullCalendar
-    height={'90vh'}
+    height={'100vh'}
     plugins={[dayGridPlugin]}
     initialView="dayGridMonth"
     events={attendanceEvents}

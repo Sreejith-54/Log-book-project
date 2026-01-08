@@ -28,8 +28,6 @@ export default function Attendance() {
 
   return (
     <div className="attendance-page">
-      <div className="topbar">Logbook</div>
-
       <div className="attendance-wrapper">
         <div className="left-panel">
           <div className="title">Time Table</div>

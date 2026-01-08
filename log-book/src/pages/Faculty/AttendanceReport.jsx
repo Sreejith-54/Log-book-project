@@ -1,8 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Search, Filter } from 'lucide-react'
-import Logo from '../assets/logo.png'
 import './AttendanceReport.css'
-import { Link } from "react-router-dom"
 
 function AttendanceReport() {
   const [selectedClass, setSelectedClass] = useState('')
@@ -60,14 +58,6 @@ function AttendanceReport() {
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
     <div className="dashboard-container">
-      <header className="dashboard-header">
-        <img src={Logo} alt="Institute Logo" className="header-logo" />
-        <nav className="header-nav">
-          <Link to="/" className="nav-link">Dashboard</Link>
-          <Link to="/attendance" className="nav-link">Attendance Report</Link>
-        </nav>
-      </header>
-
       <main className="main-content">
         <div className="class-controls">
           <div className="control-group">

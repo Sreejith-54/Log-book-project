@@ -1,4 +1,3 @@
-import logo from "../../logo.png";
 import { useNavigate } from "react-router-dom";
 
 const students = [
@@ -12,43 +11,6 @@ const StudentListPage = () => {
 
   return (
     <div className="App">
-      {/* HEADER */}
-      <header
-        style={{
-          backgroundColor: "#AD3A3C",
-          color: "white",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            paddingLeft: "30px",
-            fontSize: "20px",
-            fontWeight: "bold",
-          }}
-        >
-          <img
-            src={logo}
-            alt="Logo"
-            style={{ height: "50px", marginRight: "10px", padding: "20px" }}
-          />
-        </div>
-
-        <nav
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "2vw",
-            paddingRight: "20px",
-          }}
-        >
-          <button style={navBtnStyle}>Dashboard</button>
-          <button style={navBtnStyle}>Attendance List</button>
-        </nav>
-      </header>
 
       {/* MAIN */}
       <main>
@@ -63,12 +25,12 @@ const StudentListPage = () => {
             borderRadius: "8px",
           }}
         >
-          <div>
-            <label style={{ fontSize: "2vh" }}>Select Class: </label>
+          <div >
+            <label style={{ fontSize: "2vh", fontWeight: '600' }}>Select Class: </label>
             <select
               style={{
                 fontSize: "1.5vh",
-                padding: "5px 5vw",
+                padding: "10px 5vw",
                 marginLeft: "10px",
               }}
             >
@@ -79,8 +41,8 @@ const StudentListPage = () => {
           </div>
 
           <div style={{ display: "flex", gap: "1vh" }}>
-            <button style={actionBtnStyle}>Student Report</button>
-            <button style={actionBtnStyle}>Class Report</button>
+            <button style={actionBtnStyle} onClick={() => navigate("/admin")}>Student Report</button>
+            <button style={actionBtnStyle} onClick={() => navigate("/admin/subject-report")}>Class Report</button>
           </div>
         </div>
 
@@ -128,7 +90,7 @@ const StudentListPage = () => {
               <span>{s.name}</span>
               <button
                 style={viewBtnStyle}
-                onClick={() => navigate("/student-report")}
+                onClick={() => navigate("/admin/student-report")}
               >
                 View report
               </button>
@@ -141,14 +103,6 @@ const StudentListPage = () => {
 };
 
 /* ===== COMMON INLINE STYLES ===== */
-
-const navBtnStyle = {
-  background: "none",
-  border: "none",
-  color: "white",
-  fontSize: "2vh",
-  cursor: "pointer",
-};
 
 const actionBtnStyle = {
   fontSize: "1.5vh",
