@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 import StudentListPage from "./pages/StudentListPage/StudentListPage";
 import StudentReport from "./pages/StudentReportPage/StudentReportPage.jsx";
 import FacultyDashboard from './pages/Faculty/FacultyDashboard';
@@ -28,10 +29,31 @@ function App() {
             <Route index element={<FacultyDashboard />} /> 
             <Route path="attendance" element={<AttendanceReport />} />
           </Route>
-          <Route path="/admin" element={<MainLayout />}>
+
+          {/* <Route path="/admin" element={<MainLayout />}>
             <Route index element={<StudentListPage />} /> 
             <Route path="student-report" element={<StudentReport key={candid.id} StudentName={candid.StudentName} RollNo={candid.RollNo} />}/>
             <Route path="subject-report" element={<SubjectWiseReport />} />
+          </Route> */}
+          {/* ADMIN */}
+          <Route path="/admin" element={<MainLayout />}>
+            <Route index element={<AdminDashboard />} />
+
+            {/* ADMIN → REPORTS (reuse existing pages) */}
+            <Route
+              path="student-report"
+              element={
+                <StudentReport
+                  key={candid.id}
+                  StudentName={candid.StudentName}
+                  RollNo={candid.RollNo}
+                />
+              }
+            />
+            <Route
+              path="subject-report"
+              element={<SubjectWiseReport />}
+            />
           </Route>
         </Routes>
       </div>
