@@ -19,7 +19,7 @@ function SubjectWiseReport() {
     <div className='container'>
       <div className='operator' style={{display: 'flex', justifyContent: 'space-between', backgroundColor: '#f0f0f0', margin: '30px 20px', padding: '40px 20px', borderRadius: '8px'}}>
           <div className='class-selection'>
-            <label htmlFor='class' style={{fontSize: '2vh', fontWeight: '600', marginRight: '1vw'}}>Select Class: </label>
+            <label htmlFor='class' style={{fontSize: '2vh', fontWeight: '600', marginRight: '10px'}}>Select Class: </label>
             <select id='class' name='class' style={{fontSize: '1.5vh', padding: '10px 5vw', }} value={selectedClass} 
             onChange={(e) => setSelectedClass(e.target.value)}>
             {classes.map((className,index)=>(
@@ -27,10 +27,6 @@ function SubjectWiseReport() {
             ))}
 
             </select>
-          </div>
-          <div style={{display: 'flex', gap: '1vh',}}>
-          <button className='student-btn' style={{fontSize: '1.5vh', fontWeight: 'bold', padding: '1vh 2vh'}} onClick={() => navigate("/admin")}>Student Report</button>
-          <button className='class-btn' style={{fontSize: '1.5vh', fontWeight: 'bold', padding: '1vh 2vh'}} onClick={() => navigate("/admin/subject-report")}>Class Report</button>
           </div>
         </div>
 

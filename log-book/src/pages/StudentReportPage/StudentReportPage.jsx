@@ -25,15 +25,13 @@ const StudentReport = (props) => {
     <div className="StudentReportPage">
       <main>
         <div className='opt' style={{display: 'flex', justifyContent: 'space-between', backgroundColor: '#f0f0f0', margin: '30px 20px', padding: '40px 20px', borderRadius: '8px'}}>
-          <div className='class-selection'>
-            <label htmlFor='class' style={{fontSize: '2vh', fontWeight: '600', marginRight: '1vw'}}>Select Class: </label>
-            <select id='class' name='class' style={{fontSize: '1.5vh', padding: '10px 5vw', }}>
-              <option value='class1'>Select</option>
-            </select>
-          </div>
+          <div className='details' style={{ textAlign: 'left', fontWeight: 'bold',height: '50%'}}>
+          <p>Name : {props.StudentName}</p>
+          <p>Roll No : {props.RollNo}</p>
+        </div>
           <div style={{display: 'flex', alignItems: 'center'}}>
             <label htmlFor='subject' style={{fontSize: '2vh', fontWeight: '600', marginRight: '1vw'}}>Select Subject: </label>
-            <select id='subject' name='subject' value={subject} style={{fontSize: '1.5vh', padding: '10px 0px', textAlign: 'center'}} onChange={(e)=>setSubject(e.target.value)}>
+            <select id='subject' name='subject' value={subject} style={{fontSize: '1.5vh', padding: '10px 5vw'}} onChange={(e)=>setSubject(e.target.value)}>
               <option value=''>Select</option>
               {data.map((sub,index)=>(
                 <option key={index} value={sub.Subject}>{sub.Subject}</option>
@@ -43,14 +41,6 @@ const StudentReport = (props) => {
               <X style={{cursor: 'pointer', color: 'red', marginLeft: '10px', border: '1px solid red'}} onClick={() => setSubject('')}/>
             }
           </div>
-          <div style={{display: 'flex', gap: '1vh',}}>
-          <button style={{fontSize: '1.5vh', fontWeight: 'bold', padding: '1vh 2vh'}} onClick={() =>Navigate("/admin")}>Student Report</button>
-          <button style={{fontSize: '1.5vh', fontWeight: 'bold', padding: '1vh 2vh'}} onClick={() =>Navigate("/admin/subject-report")}>Class Report</button>
-          </div>
-        </div>
-        <div className='details' style={{ textAlign: 'left', fontWeight: 'bold', width: '97%',padding: '2%',height: '50%', margin: 'auto', backgroundColor: '#f0f0f0', borderRadius: '8px' }}>
-          <p>Name : {props.StudentName}</p>
-          <p>Roll No : {props.RollNo}</p>
         </div>
         <div className='cards' style={{ margin: '30px auto',width: '97%'}}>
           {!subject &&

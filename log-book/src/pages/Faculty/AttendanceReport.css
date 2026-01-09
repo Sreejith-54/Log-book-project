@@ -44,8 +44,9 @@
 
 /* Class Controls */
 .class-controls {
-  background-color: rgb(229, 231, 235);
-  padding: 1.5rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 40px 20px;
   margin-bottom: 2rem;
   display: flex;
   gap: 2.5rem;
@@ -53,6 +54,7 @@
 
 .control-group {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -63,10 +65,10 @@
 }
 
 .control-select {
-  padding: 0.75rem 1rem;
+  padding: 10px 5vw;
   background-color: white;
   border: 1px solid black;
-  font-size: 1.25rem;
+  font-size: 1.5vh;
 }
 
 /* Table Toolbar */

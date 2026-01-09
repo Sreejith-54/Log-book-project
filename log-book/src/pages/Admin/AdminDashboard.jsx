@@ -12,7 +12,7 @@ const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("users");
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div style={{ display: "flex", height: "100%", minHeight: "100vh" }}>
       
       {/* SIDEBAR */}
       <aside

@@ -53,17 +53,8 @@ function AttendanceReport() {
   }
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', minHeight: '100vh' }}>
       <div className="dashboard-container">
-
-        {/* HEADER */}
-        <header className="dashboard-header">
-          <img src={Logo} alt="Institute Logo" className="header-logo" />
-          <nav className="header-nav">
-            <Link to="/" className="nav-link">Dashboard</Link>
-            <Link to="/attendance" className="nav-link">Attendance Report</Link>
-          </nav>
-        </header>
 
         <main className="main-content">
 
@@ -188,4 +179,3 @@ function AttendanceReport() {
 }
 
 export default AttendanceReport
-

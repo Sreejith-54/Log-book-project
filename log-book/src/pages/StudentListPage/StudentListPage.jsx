@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import {useState} from "react";
+import StudentReport from "../StudentReportPage/StudentReportPage";
 
 const students = [
   { roll: "AM.SC.U5CSE24654", name: "John Doe" },
@@ -6,16 +7,27 @@ const students = [
   { roll: "AM.SC.U5CSE24656", name: "Alex Brown" },
 ];
 
-const StudentListPage = () => {
-  const navigate = useNavigate();
+const candid = {
+  id : 1,
+  StudentName: "John Doe",
+  RollNo: "AM.SC.U5CSE24654",
+};
 
+const StudentListPage = () => {
+  const [selectedStudent, setSelectedStudent] = useState([]);
+  function handleViewReport(student) {
+    // Logic to view the report of the selected student
+    setSelectedStudent(student);
+  }
   return (
     <div className="App">
 
       {/* MAIN */}
       <main>
         {/* TOP CONTROLS */}
-        <div
+        {selectedStudent.length === 0 &&
+        <div>
+          <div
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -38,11 +50,6 @@ const StudentListPage = () => {
               <option>CSE A</option>
               <option>CSE B</option>
             </select>
-          </div>
-
-          <div style={{ display: "flex", gap: "1vh" }}>
-            <button style={actionBtnStyle} onClick={() => navigate("/admin")}>Student Report</button>
-            <button style={actionBtnStyle} onClick={() => navigate("/admin/subject-report")}>Class Report</button>
           </div>
         </div>
 
@@ -90,13 +97,24 @@ const StudentListPage = () => {
               <span>{s.name}</span>
               <button
                 style={viewBtnStyle}
-                onClick={() => navigate("/admin/student-report")}
+                onClick={() => handleViewReport(s)}
               >
                 View report
               </button>
             </div>
           ))}
         </div>
+        </div>
+        } 
+        {selectedStudent.length !== 0 &&
+        <div>
+        <button style={{fontSize: '1.5vh', fontWeight: 'bold', padding: '1vh 3vw', margin: '30px 10px 0px 10px', backgroundColor: "#AD3A3C", color: "white", border: "none", borderRadius: "4px", cursor: "pointer" }} onClick={() => setSelectedStudent([])}>Back</button>
+        <StudentReport
+          StudentName={selectedStudent.name}
+          RollNo={selectedStudent.roll}
+        />
+        </div>
+        }
       </main>
     </div>
   );
