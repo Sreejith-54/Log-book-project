@@ -3,7 +3,6 @@ import StudentReportCalender from '../../components/StudentReportCalender.jsx';
 import React from 'react';
 import { X } from 'lucide-react';
 import './StudentReportPage.css';
-import { useNavigate } from "react-router-dom";
 
 const datas = [
   { courseID: 'CSE101', Subject: 'Data Structures', Attendence: 40, totalClasses: 40 },
@@ -15,7 +14,6 @@ const datas = [
 
 
 const StudentReport = (props) => {
-  const Navigate = useNavigate();
   const [data, setData] = React.useState([]);
   const [subject , setSubject] = React.useState('');
   React.useEffect(() => {

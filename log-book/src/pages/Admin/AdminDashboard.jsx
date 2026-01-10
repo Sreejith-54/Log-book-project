@@ -1,4 +1,3 @@
-import logo from "../../logo.png";
 import { useState } from "react";
 import UserManagement from "./UserManagement";
 import ClassManagement from "./ClassManagement";
@@ -6,6 +5,7 @@ import SubjectManagement from "./SubjectManagement";
 import AttendanceOverview from "./AttendanceOverview";
 import AttendanceShortage from "./AttendanceShortage";
 import Reports from "./Reports";
+import TimeTableManagement from "./TimeTableManagement";
 
 
 const AdminDashboard = () => {
@@ -23,10 +23,6 @@ const AdminDashboard = () => {
           padding: "20px",
         }}
       >
-        {/* <div style={{ display: "flex", alignItems: "center", marginBottom: "40px" }}>
-          <img src={logo} alt="Logo" style={{ height: "40px", marginRight: "10px" }} />
-          <h3>Admin Panel</h3>
-        </div> */}
 
         <nav style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
             
@@ -38,6 +34,9 @@ const AdminDashboard = () => {
           </button>
           <button style={navBtn(activeSection === "subjects")} onClick={() => setActiveSection("subjects")}>
             Subject Management
+          </button>
+          <button style={navBtn(activeSection === "timetable")} onClick={() => setActiveSection("timetable")}>
+            Time Table Management
           </button>
           <button style={navBtn(activeSection === "attendance")} onClick={() => setActiveSection("attendance")}>
             Attendance Overview
@@ -90,6 +89,7 @@ const getSectionTitle = (key) => {
     case "users": return "User & Role Management";
     case "classes": return "Class & Section Management";
     case "subjects": return "Subject & Course Configuration";
+    case "timetable" : return "Time Table Management";
     case "attendance": return "Attendance Overview";
     case "reports": return "Reports";
     case "shortage": return "Attendance Shortage (<75%)";
@@ -105,6 +105,8 @@ const renderSection = (key) => {
       return <ClassManagement />;
     case "subjects":
       return <SubjectManagement />;
+    case "timetable":
+      return <TimeTableManagement/>;
     case "attendance":
       return <AttendanceOverview />;
     case "reports":

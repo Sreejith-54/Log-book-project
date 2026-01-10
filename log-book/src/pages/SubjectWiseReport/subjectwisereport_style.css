@@ -34,11 +34,6 @@ body {
 .student-btn { margin-left: 100px; }
 .class-btn { margin-left: 40px; }
 
-.subject {
-    margin-left: 3vw;
-    margin-top: 20px;
-}
-
 .main {
     display: flex;
     width:99%;

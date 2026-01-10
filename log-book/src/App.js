@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
-import StudentListPage from "./pages/StudentListPage/StudentListPage";
 import StudentReport from "./pages/StudentReportPage/StudentReportPage.jsx";
 import FacultyDashboard from './pages/Faculty/FacultyDashboard';
 import SubjectWiseReport from './pages/SubjectWiseReport/SubjectWiseReport';

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
@@ -12,13 +12,16 @@ const Login = () => {
         e.preventDefault();
         if(username === 'admin' && password === 'admin123'){
             alert('Login Successful');
-            Navigate('/admin');
+            localStorage.setItem("user","admin");
+            Navigate('/Faculty');
         }
         else if(username === 'faculty' && password === 'faculty123'){
             alert('Login Successful');
+            localStorage.setItem("user","faculty");
             Navigate('/Faculty');
         }else if(username === 'cr' && password === 'cr123'){
             alert('Login Successful');
+            localStorage.setItem("user","cr");
             Navigate('/cr');
         }else{
             alert('Invalid Credentials');

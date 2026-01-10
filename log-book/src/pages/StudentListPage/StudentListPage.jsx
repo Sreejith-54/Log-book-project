@@ -7,12 +7,6 @@ const students = [
   { roll: "AM.SC.U5CSE24656", name: "Alex Brown" },
 ];
 
-const candid = {
-  id : 1,
-  StudentName: "John Doe",
-  RollNo: "AM.SC.U5CSE24654",
-};
-
 const StudentListPage = () => {
   const [selectedStudent, setSelectedStudent] = useState([]);
   function handleViewReport(student) {
@@ -122,11 +116,6 @@ const StudentListPage = () => {
 
 /* ===== COMMON INLINE STYLES ===== */
 
-const actionBtnStyle = {
-  fontSize: "1.5vh",
-  fontWeight: "bold",
-  padding: "1vh 2vh",
-};
 
 const viewBtnStyle = {
   padding: "6px 18px",

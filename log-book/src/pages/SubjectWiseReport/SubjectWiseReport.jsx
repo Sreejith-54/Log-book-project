@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import './subjectwisereport_style.css';
-import { useNavigate } from "react-router-dom";
 
 function SubjectWiseReport() {
-  const navigate = useNavigate();
   const [selectedClass, setSelectedClass] = useState("Class 1");
   const [selectedSubject, setSelectedSubject] = useState("");
   const subjects=["Operating System","DBMS","Optimization Techniques","Advanced Programming"]
@@ -17,7 +15,7 @@ function SubjectWiseReport() {
 
   return (
     <div className='container'>
-      <div className='operator' style={{display: 'flex', justifyContent: 'space-between', backgroundColor: '#f0f0f0', margin: '30px 20px', padding: '40px 20px', borderRadius: '8px'}}>
+      <div className='operator' style={{display: 'flex', justifyContent: 'space-around', backgroundColor: '#f0f0f0', margin: '30px 20px', padding: '40px 20px', borderRadius: '8px'}}>
           <div className='class-selection'>
             <label htmlFor='class' style={{fontSize: '2vh', fontWeight: '600', marginRight: '10px'}}>Select Class: </label>
             <select id='class' name='class' style={{fontSize: '1.5vh', padding: '10px 5vw', }} value={selectedClass} 
@@ -28,25 +26,26 @@ function SubjectWiseReport() {
 
             </select>
           </div>
+           <div>
+              <div style={{display: 'flex', alignItems: 'center'}}>
+                    <label htmlFor='subject' style={{fontSize: '2vh', fontWeight: '600', marginRight: '1vw'}}>Select Subject: </label>
+                    <select  style={{fontSize: '1.5vh', padding: '10px 5vw'}}
+                  value={selectedSubject} 
+                  onChange={(e) => setSelectedSubject(e.target.value)}
+                >
+                  {
+                    subjects.map((subject,index)=>{
+                      return(
+                        <option value={subject} key={index}>{subject}</option>
+                      )
+                    })
+                  }
+                </select>
+              </div>
+          </div>
         </div>
 
-      <div className='subject'>
-       <div style={{display: 'flex', alignItems: 'center'}}>
-            <label htmlFor='subject' style={{fontSize: '2vh', fontWeight: '600', marginRight: '1vw'}}>Select Subject: </label>
-             <select  style={{fontSize: '1.5vh', padding: '10px 0px', textAlign: 'center'}}
-          value={selectedSubject} 
-          onChange={(e) => setSelectedSubject(e.target.value)}
-        >
-           {
-            subjects.map((subject,index)=>{
-              return(
-                <option value={subject} key={index}>{subject}</option>
-              )
-            })
-          }
-        </select>
-          </div>
-      </div>
+     
 
       <div className='main'>
         <div className='report'>

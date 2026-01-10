@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Logo from '../../logo.png'
 
 const timetableData = {
 "CSE(AI)-A": {
@@ -235,7 +234,6 @@ export default function FacultyDashboard() {
           }
         }
       `}</style>
-
       <div className="container" style={{ padding: '30px 40px', maxWidth: '1400px', margin: '0 auto' }}>
         <div className="select-container" style={{
         display: "flex",

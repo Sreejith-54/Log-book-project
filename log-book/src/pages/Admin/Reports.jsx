@@ -1,11 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import StudentListPage from "../StudentListPage/StudentListPage.jsx";
 import SubjectWiseReport from "../SubjectWiseReport/SubjectWiseReport.jsx";
-import AttendanceReport from "../Faculty/AttendanceReport.jsx";
 
 const Reports = () => {
-  const navigate = useNavigate();
   const [page, setPage] = useState("");
   function handleCardClick(path) {
     setPage(path);
@@ -31,17 +28,10 @@ const Reports = () => {
           <h4>Subject-wise Report</h4>
           <p>View attendance of students for a specific subject.</p>
         </div>
-
-        {/* FACULTY REPORT */}
-        <div style={cardStyle} onClick={() => handleCardClick("AttendanceReport")}>
-          <h4>Faculty Report</h4>
-          <p>View faculty-wise attendance summaries.</p>
-        </div>
       </div>
       <div>
         {page === "StudentListPage" && <StudentListPage />}
         {page === "SubjectWiseReport" && <SubjectWiseReport />}
-        {page === "AttendanceReport" && <AttendanceReport />}
       </div>
     </div>
   );
