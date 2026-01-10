@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import Navbar from '../../components/Navbar'
+import React from 'react'
+import logo from '../../logo.png'
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -32,7 +32,11 @@ const Login = () => {
 
   return (
     <div className='login-page'>
-        <Navbar />
+        <header style={{ backgroundColor: '#AD3A3C' , color: 'white' , display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{display: 'flex', alignItems: 'center', paddingLeft: '30px', fontSize: '20px', fontWeight: 'bold'}}>
+                <img src={logo} alt="Logo" style={{height: '10vh', marginRight: '10px',padding:'20px'}} />
+            </div>
+        </header>
         <div className='login-container' style={{display:'flex',flexDirection:'column', backgroundColor:'#AD3A3C', height:'60vh', border:'2px solid black', borderRadius:'10px', margin:'auto', marginTop:'10vh', padding:'20px', color:'white'}}>
             <h2 style={{margin: '20px 0px', fontSize: '5vh', textAlign:'center', fontFamily:'ui-sans-serif'}}>Login Page</h2>
             <form onSubmit={(e) => handleLogin(e)} style={{display: 'flex', flexDirection: 'column', gap: '2vh',margin: '5vh auto'}}>

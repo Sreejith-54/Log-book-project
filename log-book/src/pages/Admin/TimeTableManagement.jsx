@@ -3,6 +3,9 @@ import * as XLSX from "xlsx";
 
 const TimeTableManagement = () => {
   const [data, setData] = useState([]);
+  const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  const timeSlots = ["9:00-9:50", "9:50-10:40", "10:50-11:40", "11:40-12:30", "12:30-1:20", "1:20-2:10","2:10-3:00","3:10-4:00"];
+  const subjects = ["Maths","Physics","Chemistry","English","AI","DBMS","LB","Free"];
 
   function handleXL(file) {
     if (!file) return;
@@ -38,33 +41,35 @@ const TimeTableManagement = () => {
         return row;
       });
 
-      // 5. Normalize timetable structure
-      const normalized = [];
+        const normalized = {};
 
-      rows.forEach((row) => {
+        rows.forEach((row) => {
         const day = row.Day;
+        if (!day) return; 
+        
+        if (!normalized[day]) normalized[day] = {};
 
         Object.keys(row).forEach((key) => {
-          if (key === "Day") return;
-          if (!key.includes("-")) return;
-          if (!row[key]) return;
-
-          const [startTime, endTime] = key.split("-");
-
-          normalized.push({
-            day,
-            startTime: startTime.trim(),
-            endTime: endTime.trim(),
-            subject: row[key],
-          });
+            if (key === "Day") return;
+            normalized[day][key] = row[key];
         });
-      });
+        });
 
-      setData(normalized);
+        setData(normalized);
       console.log(normalized);
     };
 
     reader.readAsArrayBuffer(file);
+  }
+
+  function updatesub(day,slot,value){
+    setData(prev => ({
+        ...prev,
+        [day]:{
+            ...prev[day],
+            [slot]:value
+        }
+    }));    
   }
 
   return (
@@ -73,7 +78,7 @@ const TimeTableManagement = () => {
       <br></br>
       <div>
         <div>
-        <label>Select Class :</label>
+        <label>Select Class : </label>
         <select>
             <option>CSE A</option>
         </select>
@@ -84,9 +89,34 @@ const TimeTableManagement = () => {
             accept=".xlsx,.xls"
             onChange={(e) => handleXL(e.target.files[0])}
         />
-        <div>
-            <table>
-                
+        <hr></hr>
+        <div style={{width: '75vw', overflowX:'scroll'}}>
+            <table border={1} style={{marginTop: '40px', borderCollapse:'collapse' }}>
+                <thead>
+                    <th>Days</th>
+                    {timeSlots.map((slot,id)=>(
+                        <th key={id}>
+                            {slot}
+                        </th>
+                    ))}
+                </thead>
+                <tbody>
+                    {daysOfWeek.map((day)=>(
+                        <tr key={day}>
+                        <td>{day}</td>
+                        {timeSlots.map((slot,id)=>(
+                            <td key={slot} style={{height: '30px'}}>
+                                <select key={id} value={data?.[day]?.[slot] || ""} onChange={(e)=>updatesub(day,slot,e.target.value)} style={{height: '30px', fontSize:'medium'}}>
+                                    <option value=''>select</option>
+                                    {subjects.map((sub)=>(
+                                        <option key={sub} value={sub}>{sub}</option>
+                                    ))}
+                                </select>
+                            </td>
+                        ))}
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </div>
       </div>

@@ -129,12 +129,13 @@ export default function Attendance() {
               <tbody className='grid'>
                 {students.map((st) => (
                   <tr
+                    style={{minWidth:'70px'}}
                     key={st.id}
                     className={`row ${st.status}`}
                     onClick={() => toggleAttendance(st.id)}
                     title="Click to change status"
                   >
-                    <td><span className='roll-class'>{st.name.slice(-8,-3)}</span><br/><span style={{fontWeight:'700' , fontSize: 'xx-large'}}>{st.name.slice(-3)}</span></td>
+                    <td><span className='roll-class'>{st.name.slice(-8,-3)}</span><br/><span style={{fontWeight:'700' , fontSize: 'xx-large',}}>{st.name.slice(-3)}</span></td>
                   </tr>
                 ))}
               </tbody>
