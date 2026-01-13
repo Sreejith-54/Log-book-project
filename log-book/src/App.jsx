@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminDashboard from "./pages/Admin/AdminDashboard.jsx";
 import StudentReport from "./pages/StudentReportPage/StudentReportPage.jsx";
-import FacultyDashboard from './pages/Faculty/FacultyDashboard';
-import SubjectWiseReport from './pages/SubjectWiseReport/SubjectWiseReport';
-import Cr from './components/Attendance.js';
+import FacultyDashboard from './pages/Faculty/FacultyDashboard.jsx';
+import SubjectWiseReport from './pages/SubjectWiseReport/SubjectWiseReport.jsx';
+import Cr from './components/Attendance.jsx';
 import AttendanceReport from './pages/Faculty/AttendanceReport.jsx';
-import MainLayout from './components/MainLayout';
+import MainLayout from './components/MainLayout.jsx';
 import Login from './pages/Login/Login.jsx';
 
 const candid = {
