@@ -6,24 +6,24 @@ import AttendanceOverview from "./AttendanceOverview";
 import AttendanceShortage from "./AttendanceShortage";
 import Reports from "./Reports";
 import TimeTableManagement from "./TimeTableManagement";
-
+import './AdminDashboard.css'
+import { MenuIcon } from "lucide-react";
 
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("users");
+  const [menu,setMenu]= useState('show');
+
+  function handlesidebar(){
+    menu === 'show'? setMenu('hide'): setMenu('show');
+  }
 
   return (
-    <div style={{ display: "flex", height: "100%", minHeight: "100vh" }}>
+    <div style={{ display: "flex", height: "100%", minHeight: "100vh",overflowX:'scroll' }}>
       
       {/* SIDEBAR */}
-      <aside
-        style={{
-          width: "260px",
-          backgroundColor: "#AD3A3C",
-          color: "white",
-          padding: "20px",
-        }}
-      >
-
+      {menu === 'show' &&
+        <aside>
+        
         <nav style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
             
           <button style={navBtn(activeSection === "users")} onClick={() => setActiveSection("users")}>
@@ -48,10 +48,13 @@ const AdminDashboard = () => {
             Attendance Shortage
           </button>
         </nav>
-      </aside>
+      </aside>}
+      
+
 
       {/* MAIN CONTENT */}
-      <main style={{ flex: 1, backgroundColor: "#f5f5f5", padding: "30px" }}>
+      <main style={{ flex: 1, backgroundColor: "#f5f5f5", padding: "10px 30px" }}>
+        <div className="menu-icon" style={{height:'10px',marginBottom:'30px'}} onClick={()=>handlesidebar()}><MenuIcon style={{backgroundColor:'#AD3A3C', color:'white',border:'3px solid #AD3A3C'}}/></div>
         <h2 style={{ marginBottom: "20px" }}>
           {getSectionTitle(activeSection)}
         </h2>
